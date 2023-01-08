@@ -39,6 +39,7 @@ describe("RegisterVehicle", () => {
         name: "Nissan",
         model: "DXT",
         // year: 2020,
+        color: "red",
       },
     };
     const httpResponse = sut.handle(httpRequest);
