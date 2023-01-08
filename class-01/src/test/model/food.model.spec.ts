@@ -9,9 +9,10 @@ describe("Classes", () => {
       inventory: 25,
     });
 
-    expect(foodModel.getName()).toEqual("Apple");
-    expect(foodModel.getDescription()).toEqual("Red");
-    expect(foodModel.getPrice()).toEqual(1000);
-    expect(foodModel.getInventory()).toEqual(25);
+    expect(foodModel.getFoodModel()).toEqual(foodModel);
+    expect(foodModel.getName()).toBe("Apple");
+    expect(foodModel.getDescription()).toBe("Red");
+    expect(foodModel.getPrice()).toBe(1000);
+    expect(foodModel.getInventory()).toBe(25);
   });
 });
