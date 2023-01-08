@@ -13,4 +13,5 @@ export default {
   transform: {
     ".+\\.ts$": "ts-jest",
   },
+  modulePathIgnorePatterns: ["<rootDir>/src/interfaces"],
 };
