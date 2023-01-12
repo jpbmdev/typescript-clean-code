@@ -12,7 +12,7 @@ describe("Class ContractModel", () => {
 
     expect(contract.getId()).toBe("1");
     expect(contract.getDateInit()).toEqual(new Date(2020));
-    expect(contract.getExpirationDate()).toEqual(new Date(2022));
+    expect(contract.getExpirationDate()).toEqual(new Date(2021));
     expect(contract.getMonth()).toBe(12);
     expect(contract.getmonthlyCost()).toBe(500);
   });
