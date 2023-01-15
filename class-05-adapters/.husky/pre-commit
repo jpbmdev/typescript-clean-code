@@ -1,0 +1,3 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+cd ./class-05-adapters && npx lint-staged 
