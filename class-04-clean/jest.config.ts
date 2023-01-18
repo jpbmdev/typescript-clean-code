@@ -14,4 +14,5 @@ export default {
     ".+\\.ts$": "ts-jest",
   },
   modulePathIgnorePatterns: ["<rootDir>/src/interfaces"],
+  testMatch: ["**/*.spec.ts"],
 };

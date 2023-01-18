@@ -7,6 +7,7 @@
     "prepare": "cd .. && husky install ./class-01/.husky",
     "create-hook": "cd .. && husky add .husky/pre-commit 'lint-staged'",
     "test": "jest",
+    "test:integration": "npm test -- -c jest.integration.config.ts",
     "start": "tsnd --transpile-only --respawn --ignore-watch node_modules src/core/server/server.ts"
   },
   "author": "",
