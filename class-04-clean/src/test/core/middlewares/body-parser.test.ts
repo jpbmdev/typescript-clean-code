@@ -1,5 +1,5 @@
 import request from "supertest";
-import app from "../../core/config/app";
+import app from "../../../core/config/app";
 
 describe("Body-Parser", () => {
   test("Should Body-Parse", async () => {
