@@ -1,8 +1,8 @@
-import { VehicleModel } from "../../../domain/models/vehicle.model";
+import { CarModel } from "../../../domain/models/car.model";
 
 describe("Classes", () => {
   it("Class VehicleModel", () => {
-    const vehicleModel = new VehicleModel({
+    const vehicleModel = new CarModel({
       name: "Nissan",
       model: "DXT",
       year: 2020,

@@ -1,4 +1,4 @@
-export class VehicleHelper {
+export class CarHelper {
   name: string;
   model: string;
   year: number;
