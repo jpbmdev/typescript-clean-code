@@ -1,14 +1,17 @@
 import express from "express";
-import { config as dotenv } from "dotenv";
 import initRoutes from "./routes";
 import initMiddlewares from "./middlewares";
 
-dotenv();
-
 const app = express();
 
-initMiddlewares(app);
+const initApp = (port: string): void => {
+  initMiddlewares(app);
 
-initRoutes(app);
+  initRoutes(app);
 
-export default app;
+  app.listen(port, () => {
+    console.log(`server is working: ${port}`);
+  });
+};
+
+export { initApp, app };

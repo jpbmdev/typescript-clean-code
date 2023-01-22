@@ -1,7 +1,13 @@
-import app from "../config/app";
+/* eslint-disable @typescript-eslint/no-floating-promises */
+import { config as dotenv } from "dotenv";
+import connectMongoDB from "../../infrastructure/db/mongodb.connection";
+import { initApp } from "../config/app";
 
-const port = process.env.PORT ?? 3000;
+dotenv();
+const port = process.env.PORT ?? "3000";
+const mongoUrl = process.env.MONGO_URL ?? "";
 
-app.listen(port, () => {
-  console.log(`server is working: ${port}`);
-});
+(async (): Promise<void> => {
+  await connectMongoDB(mongoUrl);
+  initApp(port);
+})();
