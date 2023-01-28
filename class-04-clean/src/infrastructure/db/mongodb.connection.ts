@@ -2,7 +2,7 @@
 import mongoose from "mongoose";
 
 const connectMongoDB = async (url): Promise<void> => {
-  mongoose.connect(url, {}, (err) => {
+  mongoose.connect(url, { dbName: "clean-architecture" }, (err) => {
     if (err) {
       console.log(err.message);
     } else {
