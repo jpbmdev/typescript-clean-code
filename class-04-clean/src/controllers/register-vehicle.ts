@@ -1,19 +1,30 @@
+import { AddAccount } from "../domain/useCases/add-account";
 import { MissingFormalParameter } from "../errors/client.error";
+import { badRequest, serverError, success } from "../helpers/http.helper";
+import { IController } from "../interfaces/controller.interface";
 import { HttpRequest, HttpResponse } from "../interfaces/http.interface";
 
-export class RegisterVehicle {
-  handle(httpRequest: HttpRequest): HttpResponse {
-    const requiredProperties = ["name", "model", "year", "color"];
+export class RegisterVehicle implements IController {
+  constructor(private readonly addAcount: AddAccount) {
+    this.addAcount = addAcount;
+  }
 
-    for (const requiredProperty of requiredProperties) {
-      if (!httpRequest?.body?.[requiredProperty]) {
-        return {
-          statusCode: 400,
-          body: new MissingFormalParameter(requiredProperty),
-        };
+  async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
+    try {
+      const requiredProperties = ["name", "model", "year", "color"];
+
+      for (const requiredProperty of requiredProperties) {
+        if (!httpRequest?.body?.[requiredProperty]) {
+          return badRequest(new MissingFormalParameter(requiredProperty));
+        }
       }
-    }
 
-    return { statusCode: 200 };
+      const { name, model, year, color } = httpRequest.body;
+      const vehicle = await this.addAcount.add({ name, model, year, color });
+
+      return success(vehicle);
+    } catch (error) {
+      return serverError(error);
+    }
   }
 }
