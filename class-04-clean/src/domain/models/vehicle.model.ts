@@ -5,6 +5,7 @@ export const VehicleSchema = new mongoose.Schema({
   model: { type: String },
   year: { type: String },
   color: { type: String },
+  email: { type: String },
 });
 
 export class VehicleModel {
@@ -12,4 +13,5 @@ export class VehicleModel {
   model: string;
   year: string;
   color: string;
+  email: string;
 }

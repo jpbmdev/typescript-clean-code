@@ -11,7 +11,7 @@ export class RegisterVehicle implements IController {
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const requiredProperties = ["name", "model", "year", "color"];
+      const requiredProperties = ["name", "model", "year", "color", "email"];
 
       for (const requiredProperty of requiredProperties) {
         if (!httpRequest?.body?.[requiredProperty]) {
@@ -19,8 +19,14 @@ export class RegisterVehicle implements IController {
         }
       }
 
-      const { name, model, year, color } = httpRequest.body;
-      const vehicle = await this.addAcount.add({ name, model, year, color });
+      const { name, model, year, color, email } = httpRequest.body;
+      const vehicle = await this.addAcount.add({
+        name,
+        model,
+        year,
+        color,
+        email,
+      });
 
       return success(vehicle);
     } catch (error) {

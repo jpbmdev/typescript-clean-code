@@ -5,6 +5,7 @@ export interface AddAccountVehicle {
   model: string;
   year: string;
   color: string;
+  email: string;
 }
 
 export interface AddAccount {
